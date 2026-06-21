@@ -1,15 +1,11 @@
 import { useParams, useLocation } from 'wouter';
-import { ArrowLeft, Heart, Play } from 'lucide-react';
+import { ArrowLeft, Heart, Play, Star, Clock, Calendar, User } from 'lucide-react';
 import Header from '@/components/Header';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { useFavoritesContext } from '@/contexts/FavoritesContext';
 import type { Movie } from '@/types';
 import moviesData from '@/data/movies.json';
 
 export default function MovieDetails() {
-
   const params = useParams<{ id: string }>();
   const [, navigate] = useLocation();
   const { isFavorite, addFavorite, removeFavorite } = useFavoritesContext();
@@ -19,17 +15,18 @@ export default function MovieDetails() {
 
   if (!movie) {
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center">
+      <div className="min-h-screen bg-[#040714] flex flex-col items-center justify-center gap-6">
         <Header />
         <div className="text-center">
-          <h1 className="text-4xl font-black text-white mb-4">Filme não encontrado</h1>
-          <Button
+          <h1 className="text-4xl font-black text-white mb-3">Filme não encontrado</h1>
+          <p className="text-white/40 mb-8">O título que você procura não existe ou foi removido.</p>
+          <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-all duration-200 mx-auto"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#040714] font-bold rounded-lg hover:bg-blue-50 active:scale-95 transition-all duration-200"
           >
-            <ArrowLeft size={20} />
-            Voltar para Home
-          </Button>
+            <ArrowLeft size={18} />
+            Voltar para início
+          </button>
         </div>
       </div>
     );
@@ -38,115 +35,210 @@ export default function MovieDetails() {
   const favorite = isFavorite(movie.id);
 
   const handleFavorite = () => {
-    if (favorite) {
-      removeFavorite(movie.id);
-    } else {
-      addFavorite(movie);
-    }
+    if (favorite) removeFavorite(movie.id);
+    else addFavorite(movie);
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#040714]">
       <Header />
 
-      <div className="relative w-full h-96 bg-neutral-900 overflow-hidden pt-16">
+      {/* ── HERO COM FUNDO ── */}
+      <div className="relative w-full h-[70vh] min-h-[520px] overflow-hidden">
         <img
           src={movie.fundo}
           alt={movie.titulo}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
+        {/* Gradientes */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#040714] via-[#040714]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#040714] via-[#040714]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#040714]/40 via-transparent to-transparent" />
+
+        {/* Botão voltar */}
+        <button
+          onClick={() => navigate('/')}
+          className="absolute top-24 left-6 md:left-14 flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium transition-colors duration-200 group"
+        >
+          <ArrowLeft size={18} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
+          Voltar
+        </button>
+
+        {/* Conteúdo sobre o hero */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 md:px-14 pb-10">
+          <div className="max-w-2xl">
+            {/* Gêneros como badges */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {movie.genero?.map((g) => (
+                <span
+                  key={g}
+                  className="text-[10px] font-bold uppercase tracking-widest text-blue-300 bg-blue-500/15 border border-blue-400/25 px-2.5 py-1 rounded"
+                >
+                  {g}
+                </span>
+              ))}
+            </div>
+
+            {/* Título */}
+            <h1 className="text-4xl md:text-6xl font-black text-white leading-none tracking-tight mb-4 drop-shadow-2xl">
+              {movie.titulo}
+            </h1>
+
+            {/* Metadados */}
+            <div className="flex flex-wrap items-center gap-3 text-sm mb-6">
+              <span className="flex items-center gap-1.5 text-yellow-400 font-bold">
+                <Star size={14} fill="currentColor" />
+                {movie.avaliacao ?? movie.rating}
+              </span>
+              <span className="w-1 h-1 rounded-full bg-white/25" />
+              <span className="flex items-center gap-1.5 text-white/50">
+                <Calendar size={13} />
+                {movie.ano}
+              </span>
+              <span className="w-1 h-1 rounded-full bg-white/25" />
+              <span className="flex items-center gap-1.5 text-white/50">
+                <Clock size={13} />
+                {movie.duracao} min
+              </span>
+              {movie.classificacao && (
+                <>
+                  <span className="w-1 h-1 rounded-full bg-white/25" />
+                  <span className="text-white/50 bg-white/10 px-2 py-0.5 rounded text-xs font-medium">
+                    {movie.classificacao}
+                  </span>
+                </>
+              )}
+            </div>
+
+            {/* Botões de ação */}
+            <div className="flex flex-wrap items-center gap-3">
+              <button className="flex items-center gap-2.5 bg-white text-[#040714] hover:bg-blue-50 active:scale-95 font-bold px-7 py-3 rounded-lg text-sm tracking-wide transition-all duration-200">
+                <Play size={16} fill="currentColor" />
+                Assistir agora
+              </button>
+              <button
+                onClick={handleFavorite}
+                className={`flex items-center gap-2.5 active:scale-95 border font-semibold px-5 py-3 rounded-lg text-sm tracking-wide transition-all duration-200 ${
+                  favorite
+                    ? 'bg-rose-500/20 border-rose-400/40 text-rose-300 hover:bg-rose-500/30'
+                    : 'bg-white/10 border-white/20 text-white hover:bg-white/18 backdrop-blur-sm'
+                }`}
+              >
+                <Heart size={16} fill={favorite ? 'currentColor' : 'none'} />
+                {favorite ? 'Salvo' : 'Minha lista'}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <section className="container pb-20 -mt-24 relative z-10">
-        <Button
-          onClick={() => navigate('/')}
-          variant="ghost"
-          size="icon"
-          className="absolute top-0.5 left-1 bg-black/50 hover:bg-black text-white rounded-full transition-all duration-200 z-10"
-          aria-label="Voltar"
-        >
-          <ArrowLeft size={24} />
-        </Button>
-        
-        <Card className="bg-neutral-900 border-neutral-800 rounded-lg p-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex justify-center md:justify-start">
+      {/* ── DETALHES ── */}
+      <main className="px-6 md:px-14 pb-24 -mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl">
+
+          {/* Poster lateral */}
+          <div className="hidden md:block">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)] aspect-[2/3]">
               <img
                 src={movie.imagem}
                 alt={movie.titulo}
-                className="w-72 h-96 object-cover rounded-lg border border-neutral-700"
+                className="w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#040714]/30 to-transparent" />
+            </div>
+          </div>
+
+          {/* Infos principais */}
+          <div className="md:col-span-2 flex flex-col gap-8 pt-2">
+
+            {/* Sinopse */}
+            <div>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-white/35 mb-3">
+                Sinopse
+              </h2>
+              <p className="text-white/70 text-base leading-relaxed">
+                {movie.descricao}
+              </p>
             </div>
 
-            <div className="md:col-span-2">
-              <h1 className="text-5xl font-black text-white mb-4">
-                {movie.titulo}
-              </h1>
+            {/* Separador */}
+            <div className="border-t border-white/8" />
 
-              <div className="flex flex-wrap gap-4 mb-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl font-bold text-red-600">★ {movie.rating}</span>
-                  <span className="text-neutral-400">/10</span>
+            {/* Ficha técnica */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {movie.diretor && (
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                    <User size={15} className="text-white/40" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">
+                      Diretor
+                    </p>
+                    <p className="text-white font-semibold text-sm">{movie.diretor}</p>
+                  </div>
                 </div>
-                <div className="text-neutral-400">
-                  <span className="font-semibold">{movie.ano}</span>
-                </div>
-                <div className="text-neutral-400">
-                  <span className="font-semibold">{movie.duracao} minutos</span>
-                </div>
-              </div>
+              )}
 
-              <div className="mb-6">
-                <p className="text-neutral-400 mb-2">Diretor</p>
-                <p className="text-xl font-semibold text-white">{movie.diretor}</p>
-              </div>
-
-              <div className="mb-6">
-                <p className="text-neutral-400 mb-2">Gêneros</p>
-                <div className="flex flex-wrap gap-2">
-                  {movie.genero.map((g) => (
-                    <Badge
-                      key={g}
-                      variant="secondary"
-                      className="px-3 py-1 bg-neutral-800 text-neutral-200 rounded-full text-sm"
-                    >
-                      {g}
-                    </Badge>
-                  ))}
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                  <Calendar size={15} className="text-white/40" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">
+                    Lançamento
+                  </p>
+                  <p className="text-white font-semibold text-sm">{movie.ano}</p>
                 </div>
               </div>
 
-              <div className="mb-8">
-                <p className="text-neutral-400 mb-2">Sinopse</p>
-                <p className="text-lg text-neutral-300 leading-relaxed">
-                  {movie.descricao}
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                  <Clock size={15} className="text-white/40" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">
+                    Duração
+                  </p>
+                  <p className="text-white font-semibold text-sm">{movie.duracao} minutos</p>
+                </div>
               </div>
 
-              <div className="flex gap-4">
-                <Button 
-                  className="flex items-center gap-2 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-all duration-200 hover:shadow-lg hover:shadow-red-600/50 active:scale-95"
-                >
-                  <Play size={20} />
-                  Assistir Agora
-                </Button>
-                <Button
-                  onClick={handleFavorite}
-                  className={`flex items-center gap-2 px-8 py-3 font-bold rounded-lg transition-all duration-200 active:scale-95 ${
-                    favorite
-                      ? 'bg-red-600 text-white hover:bg-red-700'
-                      : 'bg-neutral-800 text-white hover:bg-neutral-700'
-                  }`}
-                >
-                  <Heart size={20} fill={favorite ? 'currentColor' : 'none'} />
-                  {favorite ? 'Remover' : 'Favoritar'}
-                </Button>
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0 mt-0.5">
+                  <Star size={15} className="text-white/40" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">
+                    Avaliação
+                  </p>
+                  <p className="text-yellow-400 font-bold text-sm">
+                    ★ {movie.avaliacao ?? movie.rating}
+                    <span className="text-white/30 font-normal"> / 10</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Gêneros detalhados */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-3">
+                Gêneros
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {movie.genero?.map((g) => (
+                  <span
+                    key={g}
+                    className="text-xs font-semibold text-white/70 bg-white/8 border border-white/10 hover:border-white/20 hover:text-white px-3 py-1.5 rounded-lg transition-all duration-200 cursor-default"
+                  >
+                    {g}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
-        </Card>
-      </section>
+        </div>
+      </main>
     </div>
   );
 }
