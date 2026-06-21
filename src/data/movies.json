@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "titulo": "A Origem",
+    "descricao": "Um ladrão que rouba segredos corporativos através da tecnologia de compartilhamento de sonhos recebe a tarefa inversa de implantar uma ideia.",
+    "imagem": "https://images.unsplash.com/photo-1708810346958-dd3e69eac6a0?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://plus.unsplash.com/premium_photo-1748012830674-b91b04bf3d81?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avaliacao": 8.8,
+    "ano": 2010,
+    "genero": ["Ficção Científica", "Ação", "Thriller"],
+    "duracao": 148,
+    "diretor": "Christopher Nolan"
+  },
+  {
+    "id": 2,
+    "titulo": "Batman - O Cavaleiro das Trevas",
+    "descricao": "Quando a ameaça conhecida como Coringa causa caos e destruição em Gotham, o Batman deve aceitar um dos maiores testes psicológicos.",
+    "imagem": "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://plus.unsplash.com/premium_photo-1671229456411-659ff6049231?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avalicao": 9.0,
+    "ano": 2008,
+    "genero": ["Ação", "Crime", "Drama"],
+    "duracao": 152,
+    "diretor": "Christopher Nolan"
+  },
+  {
+    "id": 3,
+    "titulo": "Interstellar",
+    "descricao": "Um grupo de astronautas viaja através de um buraco de minhoca perto de Saturno em busca de um novo lar para a humanidade.",
+    "imagem": "https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=418&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://plus.unsplash.com/premium_photo-1777751336652-27b991018ee9?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avaliacao": 8.6,
+    "ano": 2014,
+    "genero": ["Ficção Científica", "Drama", "Aventura"],
+    "duracao": 169,
+    "diretor": "Christopher Nolan"
+  },
+  {
+    "id": 4,
+    "titulo": "Pulp Fiction: Tempo de Violência",
+    "descricao": "As vidas de dois assassinos da máfia, um boxeador, uma esposa de gângster e um par de ladrões se entrelaçam em quatro histórias de violência e redenção.",
+    "imagem": "https://images.unsplash.com/photo-1633220744880-cdf6c2b39f57?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://images.unsplash.com/photo-1494587351196-bbf5f29cff42?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avalicao": 8.9,
+    "ano": 1994,
+    "genero": ["Crime", "Drama"],
+    "duracao": 154,
+    "diretor": "Quentin Tarantino"
+  },
+  {
+    "id": 5,
+    "titulo": "Matrix",
+    "descricao": "Um programador de computador aprende sobre a verdadeira natureza de sua realidade e seu papel no conflito com seus controladores.",
+    "imagem": "https://images.unsplash.com/photo-1691085465046-807f880ba9d7?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avalicao": 8.7,
+    "ano": 1999,
+    "genero": ["Ficção Científica", "Ação"],
+    "duracao": 136,
+    "diretor": "Lana Wachowski, Lilly Wachowski"
+  },
+  {
+    "id": 6,
+    "titulo": "Forrest Gump",
+    "descricao": "A história de vida de um homem com baixa inteligência que presencia e participa em eventos históricos significativos nos EUA do século XX.",
+    "imagem": "https://images.unsplash.com/photo-1663868652528-04970e627cc2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://images.unsplash.com/photo-1733084275706-441432c4a466?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avalicao": 8.8,
+    "ano": 1994,
+    "genero": ["Drama", "Romance"],
+    "duracao": 142,
+    "diretor": "Robert Zemeckis"
+  },
+  {
+    "id": 7,
+    "titulo": "Um Sonho de Liberdade",
+    "descricao": "Dois homens presos formam uma amizade ao longo de muitos anos, encontrando consolo e redenção através de atos de decência comum.",
+    "imagem": "https://images.unsplash.com/photo-1492681290082-e932832941e6?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://plus.unsplash.com/premium_photo-1668091148044-056cd744e64a?q=80&w=890&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avaliacao": 9.3,
+    "ano": 1994,
+    "genero": ["Drama"],
+    "duracao": 142,
+    "diretor": "Frank Darabont"
+  },
+  {
+    "id": 8,
+    "titulo": "Gladiator",
+    "descricao": "Um ex-general romano é vendido como escravo e deve lutar pela sua liberdade na arena enquanto busca vingança.",
+    "imagem": "https://images.unsplash.com/flagged/photo-1571682927434-70ea1034fd1e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://plus.unsplash.com/premium_photo-1661963989923-17181d237cef?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avaliacao": 8.5,
+    "ano": 2000,
+    "genero": ["Ação", "Drama", "Aventura"],
+    "duracao": 155,
+    "diretor": "Ridley Scott"
+  },
+  {
+    "id": 9,
+    "titulo": "Avatar",
+    "descricao": "Um paraplégico fuzileiro naval é enviado para a lua Pandora em uma missão, mas termina se apaixonando pela civilização nativa.",
+    "imagem": "https://images.unsplash.com/photo-1664464168752-96356b904f0a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://images.unsplash.com/photo-1598814710703-d29de980cc8a?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avalicao": 7.8,
+    "ano": 2009,
+    "genero": ["Ficção Científica", "Aventura", "Romance"],
+    "duracao": 162,
+    "diretor": "James Cameron"
+  },
+  {
+    "id": 10,
+    "titulo": "Titanic",
+    "descricao": "Um jovem pobre e uma jovem mulher rica se conhecem e se apaixonam no navio Titanic, que está fadado a um destino trágico.",
+    "imagem": "https://images.unsplash.com/photo-1520461557769-cf30653fd08b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "fundo": "https://images.unsplash.com/photo-1500077423678-25eead48513a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "avaliacao": 7.8,
+    "ano": 1997,
+    "genero": ["Drama", "Romance"],
+    "duracao": 194,
+    "diretor": "James Cameron"
+  }
+]
